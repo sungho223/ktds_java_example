@@ -1,3 +1,9 @@
+/*
+ * 2025년 01월 15일
+ * kt ds 교육 1일차
+ * 주석 공부 예제
+ * */
+
 package first_java_program;
 
 /**
