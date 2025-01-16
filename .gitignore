@@ -1,0 +1,5 @@
+.metadata/
+*.classpath
+*.project
+first_java_program/.settings/
+first_java_program/bin/
