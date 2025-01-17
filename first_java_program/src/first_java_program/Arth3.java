@@ -1,8 +1,13 @@
+/*
+ * 2025년 01월 16일
+ * kt ds 교육 2일차
+ * 과제 3
+ * */
 package first_java_program;
 
 public class Arth3 {
 	public static void main(String[] args) {
-		int celsius = 30; //섭씨
+		int celsius = 32; //섭씨
 		int fahrenheit = 0; //화씨
 
 		/*
@@ -18,7 +23,7 @@ public class Arth3 {
 		* 변경공식: (섭씨 × 9/5) + 32 = 화씨
 		*/
 		
-		double fahrenheitResult = (double)(celsius * 9 / 5 + 32);
+		double fahrenheitResult = ((double)celsius * 9 / 5 + 32);
 		System.out.println(fahrenheitResult);
 	
 	}

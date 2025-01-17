@@ -1,3 +1,8 @@
+/*
+ * 2025년 01월 16일
+ * kt ds 교육 2일차
+ * 과제 1
+ * */
 package first_java_program;
 
 public class Arth1 {
