@@ -2,13 +2,15 @@ package first_java_program;
 
 public class TripAmount {
 	public static void main(String[] args) {
-		int money = (int) (Math.random() * 1_000_000) + 700_000;
+		int money = (int) (Math.random() * 300_000) + 700_000;
 		System.out.println("여행경비: " + money);
 		System.out.println();
 
-		int father = 40;
-		int mother = 36;
-		int kid = (int) (Math.random() * 25);
+		int father = (int) (Math.random() * 50) + 30;
+		int mother = (int) (Math.random() * 50) + 30;
+		int kid = (int) (Math.random() * 30);
+		System.out.println("아빠의 나이: " + father);
+		System.out.println("엄마의 나이: " + mother);
 		System.out.println("자식의 나이: " + kid);
 		System.out.println();
 
