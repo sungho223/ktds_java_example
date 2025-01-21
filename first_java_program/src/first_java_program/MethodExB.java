@@ -5,6 +5,21 @@ public class MethodExB {
 	static int seconds = 50;
 	static int time = 0;
 	
+	static int processTime = 145;
+	static int minutesA = 0;
+	static int secondsA= 0;
+	
+	public static int timeA(int p) {
+		int minutes = p / 60;
+		return minutes;
+	}
+
+	public static int timeB(int p) {
+		int seconds = p % 60;
+		return seconds;
+	}
+
+	
 	static int celsius = 30;
 	static int fahrenheit = 0;
 	
@@ -89,6 +104,10 @@ public class MethodExB {
 
 		int resultA = calculate(minutes, seconds);
 		System.out.println(resultA);
+		System.out.println("-----------------------------------");
+		System.out.println("-----------------------------------");
+		
+		System.out.println(timeA(processTime) + "시" + timeB(processTime) + "분");
 		System.out.println("-----------------------------------");
 		System.out.println("-----------------------------------");
 

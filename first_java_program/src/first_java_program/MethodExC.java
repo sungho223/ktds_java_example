@@ -16,6 +16,7 @@ public class MethodExC {
 
 	}
 
+
 	public static void main(String[] args) {
 		int input = 10;
 		System.out.println(sqrt(input));
