@@ -9,7 +9,7 @@ public class Seat {
 	public Seat() {
 		seatCondition = "clean";
 		seatReservation = "possible to reserve";
-		seatNumber = "A01";
+		seatNumber = "0/45";
 		seatFold = true;
 	}
 
@@ -24,7 +24,7 @@ public class Seat {
 		System.out.println("좌석 상태: " + seatCondition
 				+ "\n좌석 접이 상태: " + seatFold
 				+ "\n예약 가능 여부: " + seatReservation 
-				+ "\n좌석 번호: " + seatNumber);
+				+ "\n빈 좌석 수: " + seatNumber);
 		System.out.println();
 	}
 }
