@@ -7,10 +7,12 @@ public class Main {
 		Item hotSix = new Item("핫식스", 1300, 10);
 		Item milkis = new Item("밀키스", 1400, 5);
 
-		VendingMachine vendingMachine = new VendingMachine(bakas, monster, hotSix, milkis);
+		VendingMachine vendingMachine = 
+				new VendingMachine(bakas, monster, hotSix, milkis);
 
 		// 초기 재고 출력
 		vendingMachine.printItems();
+		System.out.println();
 
 		// 주문 테스트
 		vendingMachine.pressItemButton("몬스터", 5);

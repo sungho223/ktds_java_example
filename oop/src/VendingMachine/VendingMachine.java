@@ -35,6 +35,8 @@ public class VendingMachine {
 		Item selectedItem = getItemByName(itemName);
 		if (selectedItem == null) {
 			System.out.println("존재하지 않는 상품입니다.");
+			System.out.println();
+			
 			return null;
 		}
 		if (selectedItem.stock >= orderCount) {
@@ -43,6 +45,7 @@ public class VendingMachine {
 			return new Item(selectedItem.name, selectedItem.price, orderCount);
 		} else {
 			System.out.println("상품이 품절되었습니다.");
+			System.out.println();
 			return null;
 		}
 	}
@@ -69,7 +72,8 @@ public class VendingMachine {
 	}
 
 	private void printItemDetails(Item item) {
-		System.out.println("상품명: " + item.name + ", 가격: " + item.price + "원, 재고: " + item.stock + "개");
+		System.out.println("상품명: " + item.name + ", 가격: " 
+	+ item.price + "원, 재고: " + item.stock + "개");
 	}
 
 }
