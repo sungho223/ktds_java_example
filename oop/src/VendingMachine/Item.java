@@ -1,12 +1,29 @@
 package VendingMachine;
 
+/**
+ * 자판기의 상품 정보를 나타냄
+ */
 public class Item {
 
+	/**
+	 * 상품의 단가
+	 */
 	String name;
 
 	int price;
 
+	/**
+	 * 상품의 재고 수량
+	 */
 	int stock;
+
+	/**
+	 * 자판기의 상품을 생성한다
+	 * 
+	 * @param name  판매할 상품의 이름
+	 * @param price 판매할 상품의 단가
+	 * @param stock 판매할 상ㅍ무의 입고 수량
+	 */
 
 	public Item(String name, int price, int stock) {
 		this.name = name;
