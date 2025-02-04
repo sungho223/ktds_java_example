@@ -1,19 +1,20 @@
 package com.ktdsuniversity.edu.fruitseller;
 
 public class Mart {
+
 	public static void main(String[] args) {
-		FruitSeller fs = new FruitSeller(5000, 10);
-		System.out.println(fs.getMoney());
-		System.out.println(fs.getFruitStock());
-			
-		fs.sell(2);
-		fs.sell(1);
-		fs.sell(4);
-		fs.sell(1);
-		
-		System.out.println();
-		System.out.println(fs.getMoney());
-		System.out.println(fs.getFruitStock());
-		
+		FruitSeller coupang = new FruitSeller(100, 1000);
+
+		coupang.sell(10); // money, fruitStock이 변경.
+		coupang.sell(5); // money, fruitStock이 변경.
+		coupang.sell(7); // money, fruitStock이 변경.
+		coupang.sell(20); // money, fruitStock이 변경.
+		coupang.sell(1); // money, fruitStock이 변경.
+		coupang.sell(30); // money, fruitStock이 변경.
+
+		System.out.println(coupang.getMoney());
+		System.out.println(coupang.getFruitStock());
+
 	}
+
 }

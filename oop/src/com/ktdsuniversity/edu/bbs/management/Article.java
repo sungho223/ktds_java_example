@@ -8,14 +8,16 @@ public class Article {
 	String title;
 
 	public static void main(String[] args) {
-		
-		Article notice  = new Article();
+
+		Article notice = new Article();
 		notice.author = new Member("system", "관리자");
 		notice.title = "커뮤니티 이용 안내";
-		
+
 		System.out.println("게시글 제목: " + notice.title);
-		System.out.println("작성자: "  + notice.author.getName());
-		System.out.println("작성자 아이디: " + notice.author.getId());
-		
+		System.out.println("작성자: " + notice.author.name);
+		System.out.println("작성자 아이디: " + notice.author.id);
+		notice.author.hello();
+
 	}
+
 }

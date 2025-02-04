@@ -1,22 +1,18 @@
+// Member 클래스가 존재하는 폴더 경로.
 package com.ktdsuniversity.edu.member.management;
 
 public class Member {
 
-	private String id;
-	private String name;
+	public String id;
+	public String name;
 	
 	public Member(String id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
-	public String getId() {
-		return this.id;
+	public void hello() {
+		System.out.println("Hi, " + this.name);
 	}
-	
-	public String getName() {
-		return this.name;
-	}
-	
 	
 }

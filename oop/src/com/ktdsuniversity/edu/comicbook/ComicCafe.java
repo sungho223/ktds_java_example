@@ -2,68 +2,103 @@ package com.ktdsuniversity.edu.comicbook;
 
 public class ComicCafe {
 
-    static final int rentCost = 1000; // 대여 비용
-    private int money; // 카페 보유 금액
-    ComicBook comic1;
-    ComicBook comic2;
-    ComicBook comic3;
-    ComicBook comic4;
-    
-    public ComicCafe(int money, ComicBook comic1, ComicBook comic2, ComicBook comic3, ComicBook comic4) {
-        this.money = money;
-        this.comic1 = comic1;
-        this.comic2 = comic2;
-        this.comic3 = comic3;
-        this.comic4 = comic4;
-    }
+	private final int RENTAL_FEE = 1_000;
 
-    public int getMoney() {
-        return this.money;
-    }
+	private int money;
+	private ComicBook book1;
+	private ComicBook book2;
+	private ComicBook book3;
+	private ComicBook book4;
 
-    // 책 대여
-    public void rentBook(String bookName) {
-        ComicBook comic = findComic(bookName);
-        if (comic != null) {
-            if (comic.rentBook()) {
-                this.money += rentCost;
-                System.out.println(bookName + " 대여완료 \n현재 보유 금액: " + this.money);
-            } else {
-                System.out.println(bookName + " 은 대여중입니다.");
-            }
-        } else {
-            System.out.println(bookName + "은 이 가게에 없습니다.");
-        }
-    }
+	public ComicCafe(int money, ComicBook book1, ComicBook book2, ComicBook book3, ComicBook book4) {
+		this.money = money;
+		this.book1 = book1;
+		this.book2 = book2;
+		this.book3 = book3;
+		this.book4 = book4;
+	}
 
-    // 책 반납
-    public void returnBook(String bookName) {
-        ComicBook comic = findComic(bookName);
-        if (comic != null) {
-            if (comic.returnBook()) {
-                System.out.println(bookName + " 반납완료");
-            } else {
-                System.out.println(bookName + " 은 대여중이지 않습니다.");
-            }
-        } else {
-            System.out.println(bookName + "은 이 가게에 없습니다.");
-        }
-    }
+	public int getMoney() {
+		return money;
+	}
 
-    // 책 찾기 (책의 이름으로 해당 책을 찾는 메서드)
-    private ComicBook findComic(String bookName) {
-        if (comic1.getBookName().equals(bookName)) return comic1;
-        if (comic2.getBookName().equals(bookName)) return comic2;
-        if (comic3.getBookName().equals(bookName)) return comic3;
-        if (comic4.getBookName().equals(bookName)) return comic4;
-        return null;
-    }
+	public void printAllBooks() {
+		System.out.println("================= 보유중인 만화책 목록 =================");
+		System.out.println(this.book1.getName() + " > " + this.book1.getIsRental());
+		System.out.println(this.book2.getName() + " > " + this.book2.getIsRental());
+		System.out.println(this.book3.getName() + " > " + this.book3.getIsRental());
+		System.out.println(this.book4.getName() + " > " + this.book4.getIsRental());
+	}
 
-    public void printAllBooks() {
-        System.out.println("현재 보유 만화책 목록:");
-        System.out.println(comic1.getBookName() + " (대여중: " + comic1.getBookStat() + ")");
-        System.out.println(comic2.getBookName() + " (대여중: " + comic2.getBookStat() + ")");
-        System.out.println(comic3.getBookName() + " (대여중: " + comic3.getBookStat() + ")");
-        System.out.println(comic4.getBookName() + " (대여중: " + comic4.getBookStat() + ")");
-    }
+	public void rentBook(String bookName) {
+		System.out.println("================= 만화책 대여 =================");
+		if (bookName == this.book1.getName()) {
+			if (this.book1.getIsRental()) {
+				System.out.println(this.book1.getName() + "은 이미 대여중인 만화책입니다.");
+			} else {
+				this.book1.setIsRental(true);
+				this.money += this.RENTAL_FEE;
+				System.out.println(this.book1.getName() + "을 대여했습니다.");
+			}
+		} else if (bookName == this.book2.getName()) {
+			if (this.book2.getIsRental()) {
+				System.out.println(this.book2.getName() + "은 이미 대여중인 만화책입니다.");
+			} else {
+				this.book2.setIsRental(true);
+				this.money += this.RENTAL_FEE;
+				System.out.println(this.book2.getName() + "을 대여했습니다.");
+			}
+		} else if (bookName == this.book3.getName()) {
+			if (this.book3.getIsRental()) {
+				System.out.println(this.book3.getName() + "은 이미 대여중인 만화책입니다.");
+			} else {
+				this.book3.setIsRental(true);
+				this.money += this.RENTAL_FEE;
+				System.out.println(this.book3.getName() + "을 대여했습니다.");
+			}
+		} else if (bookName == this.book4.getName()) {
+			if (this.book4.getIsRental()) {
+				System.out.println(this.book4.getName() + "은 이미 대여중인 만화책입니다.");
+			} else {
+				this.book4.setIsRental(true);
+				this.money += this.RENTAL_FEE;
+				System.out.println(this.book4.getName() + "을 대여했습니다.");
+			}
+		} else {
+			System.out.println(bookName + "은 보유중인 만화책이 아닙니다.");
+		}
+	}
+
+	public void returnBook(String bookName) {
+		System.out.println("================= 만화책 반납 =================");
+
+		if (bookName == this.book1.getName()) {
+			if (!this.book1.getIsRental()) {
+				System.out.println(this.book1.getName() + "은 대여중인 만화책이 아닙니다.");
+			} else {
+				System.out.println(this.book1.getName() + " 만화책이 반납되었습니다.");
+			}
+		} else if (bookName == this.book2.getName()) {
+			if (!this.book2.getIsRental()) {
+				System.out.println(this.book2.getName() + "은 대여중인 만화책이 아닙니다.");
+			} else {
+				System.out.println(this.book2.getName() + " 만화책이 반납되었습니다.");
+			}
+		} else if (bookName == this.book3.getName()) {
+			if (!this.book3.getIsRental()) {
+				System.out.println(this.book3.getName() + "은 대여중인 만화책이 아닙니다.");
+			} else {
+				System.out.println(this.book3.getName() + " 만화책이 반납되었습니다.");
+			}
+		} else if (bookName == this.book4.getName()) {
+			if (!this.book4.getIsRental()) {
+				System.out.println(this.book4.getName() + "은 대여중인 만화책이 아닙니다.");
+			} else {
+				System.out.println(this.book4.getName() + " 만화책이 반납되었습니다.");
+			}
+		} else {
+			System.out.println(bookName + "은 보유중인 만화책이 아닙니다.");
+		}
+	}
+
 }
