@@ -6,28 +6,50 @@
 
 package first_java_program;
 
+
+import java.util.Scanner;
+
 public class Variables {
 
 	public static void main(String[] args) {
-
-//		byte firstNumber = 100;
-//		byte secondNumber = 110;
-//		byte thirdNumber = (byte)(firstNumber + secondNumber);
-//		System.out.println(thirdNumber);
 		
-//		float pi = 3.14f;
-//		float r = 2f;
-//		double result = r * r * pi;
-//		System.out.println(result);
+		System.out.println( Byte.MAX_VALUE );
+		System.out.println( Byte.MAX_VALUE + 1 );
+		
+		byte byteNumberVariable = Byte.MAX_VALUE;
+		byteNumberVariable = (byte) (byteNumberVariable + 1);
+		System.out.println(byteNumberVariable);
+				
+		int intNumberVariable;
+		intNumberVariable = 50;
+		System.out.println(intNumberVariable);
+		
+		double doubleNumberVariable = 3.14;
+		System.out.println(doubleNumberVariable);
+		
+		float floatNumberVariable = 3.14F;
 		
 		
-		boolean ttt = true;
-		boolean fff = false;
-		System.out.println(ttt);
-		System.out.println(fff);
-
 		
+		
+		byte firstNumber = 10;
+		byte secondNumber = 11;
+		byte thirdNumber = (byte) (firstNumber + secondNumber);
+		System.out.println(thirdNumber);
+	
+		long hugeNumber = 3_000_000_000L;
+		
+		boolean yesOrNo = true;
+		boolean yesOrNo2 = false;
+		
+		boolean isGreateThan = 3 > 1;
+		System.out.println(isGreateThan);
+		
+		char letter = 'a';
+		System.out.println(letter);
+		System.out.println(letter + 1);
+		System.out.println( (char) (letter + 1) );
 		
 	}
-
+	
 }
