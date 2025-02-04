@@ -22,6 +22,9 @@ public class FruitSeller {
 		this.fruitStock = fruitStock;
 	}
 
+	public FruitSeller() {
+	}
+
 	public int getMoney() {
 		return this.money;
 	}
@@ -40,6 +43,15 @@ public class FruitSeller {
 			this.fruitStock -= quantity;
 			this.money += quantity * this.FRUIT_PRICE;
 		}
+	}
+
+	public void sell() {
+		if (this.fruitStock >= 1) {
+			this.fruitStock -= 1;
+			this.money += 1 * this.FRUIT_PRICE;
+		}
+
+		// this.sell(1);
 	}
 
 }

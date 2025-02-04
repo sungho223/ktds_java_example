@@ -34,6 +34,11 @@ public class AnimalMain {
 		boolean isDecimal = NumberUtils.isDecimalFormat("1029384719856");
 		System.out.println(isDecimal);
 		System.out.println();
+		
+		System.out.println();
+		
+		int result = NumberUtils.converToInt("a;lskdjfpoi", 0);
+		System.out.println(result);
 
 	}
 }

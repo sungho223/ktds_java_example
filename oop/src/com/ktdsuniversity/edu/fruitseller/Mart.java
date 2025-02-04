@@ -14,6 +14,12 @@ public class Mart {
 
 		System.out.println(coupang.getMoney());
 		System.out.println(coupang.getFruitStock());
+		System.out.println();
+		
+		FruitSeller lottemart = new FruitSeller(100, 100);
+		lottemart.sell();
+		System.out.println(lottemart.getMoney());
+		System.out.println(lottemart.getFruitStock());
 
 	}
 

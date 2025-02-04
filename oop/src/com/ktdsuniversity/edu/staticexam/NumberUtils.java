@@ -28,4 +28,11 @@ public class NumberUtils {
 		return isDecimalFormat;
 	}
 
+	public static int converToInt(String source, int defaultValue) {
+		if (NumberUtils.isDecimalFormat(source)) {
+			return NumberUtils.convertToInt(source);
+		}
+		return defaultValue;
+	}
+
 }
