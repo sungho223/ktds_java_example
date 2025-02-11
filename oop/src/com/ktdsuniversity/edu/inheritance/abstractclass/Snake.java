@@ -1,6 +1,6 @@
 package com.ktdsuniversity.edu.inheritance.abstractclass;
 
-public class Snake extends Animal{
+public class Snake extends Animal {
 
 	public Snake(String place) {
 		super(place, 30);
@@ -8,21 +8,44 @@ public class Snake extends Animal{
 
 	@Override
 	public void movement() {
-		System.out.println(this.place + "에 살고 있는 뱀의 생존여부: " + super.isLive);
-		System.out.println(this.place + "에 살고 있는 뱀의 자아 여부: " + super.haveEgo);		
+		super.temperature += 1;
+		if (super.temperature >= 36) {
+			super.temperature = 36;
+		}
+		
+		super.hungry += 1;
+		if (super.hungry >= 99) {
+			super.hungry = 99;
+		}
+		
+		System.out.println("뱀이 " + super.place + "에서 스르륵 기어갑니다.");
 	}
 
 	@Override
 	public void breath() {
-		System.out.println("현재 체온은 " + super.temperature + "도 입니다.");		
+		super.temperature += 0.1;
+		if (super.temperature >= 36) {
+			super.temperature = 36;
+		}
+		
+		super.hungry += 0.3;
+		if (super.hungry >= 99) {
+			super.hungry = 99;
+		}
+		
+		System.out.println("뱀이 " + super.place + "에서 숨 쉽니다.");
 	}
 
 	@Override
 	public void eat() {
-		System.out.println(this.place + "있는 뱀이" 
-				+ " 입이 심심함을 느낍니다. 고기를 먹습니다.");		
+		if (super.hungry == 99) {
+			System.out.println("뱀이 " + super.place + "에서 먹이를 삼킵니다.");
+			super.hungry = 0;
+		}
+		else {
+			System.out.println("뱀이 먹이를 먹을 생각이 없습니다.");
+		}
+		
 	}
 
-	
-	
 }

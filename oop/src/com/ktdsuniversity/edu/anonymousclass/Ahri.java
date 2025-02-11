@@ -5,8 +5,8 @@ public class Ahri implements Unit {
 	private String characterName;
 	private String playerName;
 
-	private int hp;
 	private int level;
+	private int hp;
 	private int mana;
 	private int money;
 	private int attackDamage;
@@ -14,20 +14,16 @@ public class Ahri implements Unit {
 	private float attackSpeed;
 
 	public Ahri(String playerName) {
-		this.characterName = "Ahri";
+		this.characterName = "아리";
 		this.playerName = playerName;
+
 		this.level = 1;
 		this.hp = 100;
 		this.mana = 100;
-		this.money = 0;
+		// this.money = 0;
 		this.attackDamage = 20;
 		this.defence = 10;
 		this.attackSpeed = 1.5f;
-	}
-
-	@Override
-	public void move() {
-		System.out.println(this.characterName + " (" + this.playerName + ") " + " 이동중.");
 	}
 
 	@Override
@@ -46,42 +42,44 @@ public class Ahri implements Unit {
 	}
 
 	@Override
-	public void basicAttck(Unit otherCharacter) {
-		int ohterCharacterHp = otherCharacter.getHp();
+	public void move() {
+		System.out.println(this.characterName + "(" + this.playerName + ") 이동중.");
+	}
 
-		int attackDamage = this.attackDamage + this.level - otherCharacter.getDefence();
+	@Override
+	public void basicAttack(Unit otherCharacter) {
+		int otherCharacterHp = otherCharacter.getHp();
 
+		// 상대 캐릭터에게 가할 공격 포인트
+		int attackDamage = this.attackDamage - otherCharacter.getDefence();
 		if (attackDamage < 0) {
 			attackDamage = 0;
 		}
-		ohterCharacterHp -= attackDamage;
-		otherCharacter.setHp(ohterCharacterHp);
+		otherCharacterHp -= attackDamage;
+		otherCharacter.setHp(otherCharacterHp);
 	}
 
 	@Override
 	public void skillAttack(Unit otherCharacter) {
-
 		if (this.mana < 10) {
 			return;
 		}
 
 		this.mana -= 10;
+		int otherCharacterHp = otherCharacter.getHp();
 
-		int ohterCharacterHp = otherCharacter.getHp();
-
-		int attackDamage = this.attackDamage + this.level - otherCharacter.getDefence();
-
+		// 상대 캐릭터에게 가할 공격 포인트
+		int attackDamage = (this.attackDamage + this.level) - otherCharacter.getDefence();
 		if (attackDamage < 0) {
 			attackDamage = 0;
 		}
-
-		ohterCharacterHp -= attackDamage;
-		otherCharacter.setHp(ohterCharacterHp);
+		otherCharacterHp -= attackDamage;
+		otherCharacter.setHp(otherCharacterHp);
 	}
 
 	@Override
 	public void recall() {
-		System.out.println(this.characterName + " (" + this.playerName + ")가 " + "귀환했습니다");
+		System.out.println(this.characterName + "(" + this.playerName + ")가 귀환했습니다.");
 	}
 
 	@Override
@@ -98,22 +96,25 @@ public class Ahri implements Unit {
 
 	@Override
 	public void speak() {
-		String[] script = new String[] { "얍", "이동 ~", "공격~" };
-		int scriptIndex = (int) (Math.random() * script.length);
+		String[] script = new String[] { "얍!", "이동~", "공격~"
+				// 0 1 2
+		};
+		int scriptIndex = (int) (Math.random() * script.length); // 0 ~ 2
 		System.out.println(script[scriptIndex]);
-
 	}
 
 	@Override
 	public void emotion() {
-		String[] script = new String[] { "웃기", "울기" };
-		int scriptIndex = (int) (Math.random() * script.length);
+		String[] script = new String[] { "웃기", "울기"
+				// 0 1
+		};
+		int scriptIndex = (int) (Math.random() * script.length); // 0 ~ 1
 		System.out.println(script[scriptIndex]);
 	}
 
 	@Override
 	public void die() {
-		System.out.println(this.characterName + " (" + this.playerName + ")가 " + "죽었습니다");
+		System.out.println(this.characterName + "(" + this.playerName + ")가 죽었습니다.");
 	}
 
 	@Override

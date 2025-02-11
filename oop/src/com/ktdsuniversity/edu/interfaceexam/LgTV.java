@@ -1,12 +1,11 @@
-package com.ktdsuniversity.edu.interfaceExam;
+package com.ktdsuniversity.edu.interfaceexam;
 
-public class LgTV{
-	
+public class LgTV {
+
 	public void on(RemoteControl signal) {
 		signal.powerOn();
 		System.out.println("Life is Good");
-		
-		if(signal instanceof DanawaRemoteControl drc) {
+		if ( signal instanceof DanawaTvSignal drc) {
 			drc.openDanawaPage();
 		}
 	}
@@ -14,5 +13,5 @@ public class LgTV{
 	public void off(RemoteControl signal) {
 		signal.powerOff();
 	}
-
+	
 }

@@ -3,25 +3,25 @@ package com.ktdsuniversity.edu.anonymousclass;
 public class Game {
 
 	public static void main(String[] args) {
-		Unit ahri = new Ahri("Faker");
-		Unit other = new Ahri("Ryu");
-		Unit special = new Unit() {
 
-			private String characterName = "hidden";
-			private String playerName = "Kuro";
+		// 익명클래스의 한계점.
+		// 클래스: 여러개의 interface 를 구현할 수 있다.
+		// 익명클래스: 한번에 하나의 interface 만 구현할 수 있다.
 
-			private int hp = 100;
-			private int level = 10000;
+		Unit ahri = new Ahri("페이커");
+		// 클래스 구현없이 인스턴스를 만드려면 "new 추상클래스 혹은 인터페이스() {}";
+		Unit other = new Unit() {
+
+			private String characterName = "히든";
+			private String playerName = "강휘원";
+
+			private int level = 100;
+			private int hp = 10000;
 			private int mana = 20000;
-			private int money = 99999;
+			private int money = 999999;
 			private int attackDamage = 5000;
-			private int defence = 10000;
+			private int defence = 100000;
 			private float attackSpeed = 0.1f;
-
-			@Override
-			public void move() {                                                      
-				System.out.println(this.characterName + " (" + this.playerName + ") " + " 이동중.");
-			}
 
 			@Override
 			public int getHp() {
@@ -39,42 +39,44 @@ public class Game {
 			}
 
 			@Override
-			public void basicAttck(Unit otherCharacter) {
-				int ohterCharacterHp = otherCharacter.getHp();
+			public void move() {
+				System.out.println(this.characterName + "(" + this.playerName + ") 이동중.");
+			}
 
-				int attackDamage = this.attackDamage + this.level - otherCharacter.getDefence();
+			@Override
+			public void basicAttack(Unit otherCharacter) {
+				int otherCharacterHp = otherCharacter.getHp();
 
+				// 상대 캐릭터에게 가할 공격 포인트
+				int attackDamage = this.attackDamage - otherCharacter.getDefence();
 				if (attackDamage < 0) {
 					attackDamage = 0;
 				}
-				ohterCharacterHp -= attackDamage;
-				otherCharacter.setHp(ohterCharacterHp);
+				otherCharacterHp -= attackDamage;
+				otherCharacter.setHp(otherCharacterHp);
 			}
 
 			@Override
 			public void skillAttack(Unit otherCharacter) {
-
 				if (this.mana < 10) {
 					return;
 				}
 
 				this.mana -= 10;
+				int otherCharacterHp = otherCharacter.getHp();
 
-				int ohterCharacterHp = otherCharacter.getHp();
-
-				int attackDamage = this.attackDamage + this.level - otherCharacter.getDefence();
-
+				// 상대 캐릭터에게 가할 공격 포인트
+				int attackDamage = (this.attackDamage + this.level) - otherCharacter.getDefence();
 				if (attackDamage < 0) {
 					attackDamage = 0;
 				}
-
-				ohterCharacterHp -= attackDamage;
-				otherCharacter.setHp(ohterCharacterHp);
+				otherCharacterHp -= attackDamage;
+				otherCharacter.setHp(otherCharacterHp);
 			}
 
 			@Override
 			public void recall() {
-				System.out.println(this.characterName + " (" + this.playerName + ")가 " + "귀환했습니다");
+				System.out.println(this.characterName + "(" + this.playerName + ")가 귀환했습니다.");
 			}
 
 			@Override
@@ -91,22 +93,25 @@ public class Game {
 
 			@Override
 			public void speak() {
-				String[] script = new String[] { "얍", "이동 ~", "공격~" };
-				int scriptIndex = (int) (Math.random() * script.length);
+				String[] script = new String[] { "얍!", "이동~", "공격~"
+						// 0 1 2
+				};
+				int scriptIndex = (int) (Math.random() * script.length); // 0 ~ 2
 				System.out.println(script[scriptIndex]);
-
 			}
 
 			@Override
 			public void emotion() {
-				String[] script = new String[] { "웃기", "울기" };
-				int scriptIndex = (int) (Math.random() * script.length);
+				String[] script = new String[] { "웃기", "울기"
+						// 0 1
+				};
+				int scriptIndex = (int) (Math.random() * script.length); // 0 ~ 1
 				System.out.println(script[scriptIndex]);
 			}
 
 			@Override
 			public void die() {
-				System.out.println(this.characterName + " (" + this.playerName + ")가 " + "죽었습니다");
+				System.out.println(this.characterName + "(" + this.playerName + ")가 죽었습니다.");
 			}
 
 			@Override
@@ -114,21 +119,17 @@ public class Game {
 				this.money += 3;
 				System.out.println(this.money);
 			}
-
 		};
 
 		ahri.move();
 		other.move();
 
-		ahri.basicAttck(other);
+		ahri.basicAttack(other);
 		other.skillAttack(ahri);
 
 		ahri.speak();
 		other.speak();
-		System.out.println();
-		
-		special.move();
-		special.basicAttck(ahri);
-		special.speak();
+
 	}
+
 }
