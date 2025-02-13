@@ -1,3 +1,4 @@
+
 package com.ktdsuniversity.edu.errorhandle;
 
 import java.util.Scanner;
