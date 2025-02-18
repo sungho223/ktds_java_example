@@ -26,6 +26,21 @@ public class BasicStream {
 			System.out.println(eachMenu);
 		}
 	}
+	
+	public void run() {
+		DishList.get()
+				.stream()
+				.peek(dish -> System.out.println("최종 연산 없는 스트림" + dish))
+				;
+		
+		long count = DishList.get()
+							 .stream()
+							 .peek(dish -> System.out.println("최종 연산있는 스트림" + dish))
+							 .filter(dish -> dish.getIsVegetarian())
+							 .count()
+							 ;
+		System.out.println(count);
+	}
 
 	public static void main(String[] args) {
 		BasicStream bs = new BasicStream();
